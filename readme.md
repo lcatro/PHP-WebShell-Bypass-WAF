@@ -168,4 +168,7 @@ Payload:
 ```
   这个WebShell 使用到了间接引用函数,$_uU 重定向到chr() ,;$_cC 最后解码为`eval($_POST[1]);` ,$_fF 解码为`create_function` ,最后就是create_function 的调用过程,和php-shell-create_function.php 原理一样
 
+3.
+
+  未知攻,焉知防,这个是关于PHP Shell 的一句话检测脚本[Link](https://github.com/tennc/webshell/blob/master/php/pHp%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%89%AB%E6%8F%8F%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F.php),很多绕过的思路都是在做防御的时候想到的,没有绝对的防御,甚至是看起来正确的思路在代码实现的过程中会存在Bug 导致分析或者识别失败.
 
